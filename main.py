@@ -3,13 +3,13 @@ import sys
 import numpy as np 
 
  #original image color bgr
-img = cv.imread("./rc-car.jpg")
+img = cv.imread("./rc-car.JPG")
 
  # convert to RGB format
 img_rgb = img.copy()
 img_rgb = cv.cvtColor(img, cv.COLOR_BGR2RGB)
 
-    # convert to grayscale
+ # convert to grayscale
 img_gry = img.copy()
 img_gry = cv.cvtColor(img_gry, cv.COLOR_BGR2GRAY)
 #back to BGR format so we can concatenate it back again
@@ -21,8 +21,8 @@ img_hls = cv.cvtColor(img_hls, cv.COLOR_BGR2HLS_FULL)
 
 #annotate--adding text or notes to the images 
 cv.putText(img,"BGR format", (100,780), cv.FONT_HERSHEY_COMPLEX, 1.5, (255,255,255), 2)
-cv.putText(img_rgb,"BGR format", (100,780), cv.FONT_HERSHEY_COMPLEX, 1.5, (255,255,255), 2)
-cv.putText(img_gry,"BGR format", (100,780), cv.FONT_HERSHEY_COMPLEX, 1.5, (255,255,255), 2)
+cv.putText(img_rgb,"RGR format", (100,780), cv.FONT_HERSHEY_COMPLEX, 1.5, (255,255,255), 2)
+cv.putText(img_gry,"Grayscale format", (100,780), cv.FONT_HERSHEY_COMPLEX, 1.5, (255,255,255), 2)
 cv.putText(img_hls,"HLS format", (100,780), cv.FONT_HERSHEY_COMPLEX, 1.5, (255,255,255), 2)
 
 # need to display image side by side inform of a grid
@@ -34,3 +34,4 @@ row1 = np.concatenate((img, img_rgb), axis = 1 )
 row2 = np.concatenate((img_hls, img_gry), axis = 1 )
 final_img = np.concatenate((row1, row2), axis = 0 )
 cv.imshow("RC CAR", final_img)
+cv.waitKey(0)
