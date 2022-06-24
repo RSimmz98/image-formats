@@ -35,3 +35,6 @@ row2 = np.concatenate((img_hls, img_gry), axis = 1 )
 final_img = np.concatenate((row1, row2), axis = 0 )
 cv.imshow("RC CAR", final_img)
 cv.waitKey(0)
+
+##the only bug that I found>> whenever I run the project it would show that its running but then suddenly close
+## fixed by adding the cv.waitKey(0)
